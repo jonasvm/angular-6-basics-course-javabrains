@@ -1,0 +1,21 @@
+<p>COMPONENTE ADDRESS-CARD</p>
+<div class="address-card">
+    <h1 class="name">{{ user.name }}</h1>
+    <h3 class="title">{{ user.designation }}</h3>
+    <!-- o botão abaixo seta a propriedade isCollapsed no address-component.ts-->
+    <!-- tem dois botões porque simula a troca do texto, que poderia ser de outra maneira-->
+    <button *ngIf="isCollapsed" (click)="toggleCollapse()" >Expand</button>
+    <button *ngIf="!isCollapsed" (click)="toggleCollapse()" >Collapse</button>
+
+    <!-- A div abaixo foi inserida para testar o uso do botão que esconde as informações -->
+    <div *ngIf="!isCollapsed">
+        <p class="address">{{ user.address }}</p>
+        <!-- Poderia usar somente *ngIf="user.phone.length" -->
+        <div class="phone" *ngIf="user.phone.length > 0">
+            <p>Phone:</p>
+            <!-- A maneira abaixo usa hardcoded a posição do array -->
+            <!-- <p>{{ user.phone[0] }}</p> -->
+            <p *ngFor="let phoneNumber of user.phone">{{ phoneNumber }}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<!-- Esta é a main page da aplicação, ela coloca todo conteúdo dos outros componentes usando seletores -->
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<hr>
+<h1>Below The APP Hello World</h1>
+<!-- Abaixo a tag <app-hello-world> invoca o componente hello-world -->
+<app-hello-world></app-hello-world>
+<hr>
+<h1>And below, the Date Component</h1>
+<!-- E abaixo a tag <app-date> é invocada  -->
+<app-date></app-date>
+<hr>
+<h1>And below, the ngfor</h1>
+<!-- é possível passar quantas propriedades forem necessárias -->
+<!-- <app-address-card name="Sanoj"></app-address-card> -->
+
+<!-- inclusive é possível passar um objeto, porém os dados são inseridos em outro arquivo -->
+<!-- app.component.ts no export -->
+<!-- e o que faz o objeto ser enviado, e não uma string com o conteúdo "user" é o [user] -->
+<app-address-card [user]="user"></app-address-card> 
+
+<!-- o trecho abaixo adiciona um input do tipo text para trabalhar com data binding com ngModel-->
+<!-- para usar o ngModel, tem que importar o FormsModulo no app.module.ts -->
+<!-- e a manha para o que é digitado no input aparecer na tela é usar [()]-->
+<br>
+<!-- da maneira abaixo, mostra o que tiver na variável inputText -->
+<!-- <input type="text" [value]="inputText"> {{inputText}} -->
+<input type="text" [(ngModel)]="inputText"> {{inputText}}
+
+<hr>
+<!-- e aqui, mostra como fica o import de componentes -->
+<!-- se  tiver um módulo, e um componente neste módulo, ele fica escondido do app principal (da raiz) -->
+<!-- para funcionar, tem que adicionar o import no app.module.ts-->
+<h1>And below, the component inside the module</h1>
+<app-view-component></app-view-component>
+
+<hr>
+<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>

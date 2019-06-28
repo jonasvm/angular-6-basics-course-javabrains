@@ -1,0 +1,7 @@
+<p>settings works!</p>
+
+<!--O interessante, é que este link abaixo, só atualiza a child page, não a principal-->
+<a *ngFor="let route of routes " [routerLink]="route.url">{{route.linkName}}</a>
+
+<!-- Para children routes, é preciso colocar estas tags router-outlet, porque não funciona a do app.component-->
+<router-outlet></router-outlet>
